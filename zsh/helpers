@@ -1,0 +1,3 @@
+environment(){
+    cat /opt/datadog/etc/environment | cut -c 5-
+}

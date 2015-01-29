@@ -9,4 +9,5 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git)
 
 source ~/.jumpbox-tools/zsh/aliases
+source ~/.jumpbox-tools/zsh/helpers
 source $ZSH/oh-my-zsh.sh

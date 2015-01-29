@@ -4,15 +4,31 @@
 
 RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%}'
 
-MAINROLE=jumpbox
+FSTLINEPREFIX="%{$fg[cyan]%}┌─%{$reset_color%}"
 
 if [ "`id -u`" -ne 0 ]; then
-    PROMPT=$'%{\e[36;1m%}%B┌─[%b%{\e[0m%}%{\e[1;31m%}%n%{\e[1;33m%}@%{\e[37m%}%m%{\e[36;1m%}%B]%b%{\e[0m%}%{\e[36;1m%}%B[%b%{\e[0;33m%}'%D{"%H:%M:%S"}%b$'%{\e[36;1m%}%B]\e[36;1m%}%B[%b%{\e[0;33m%}$(MAINROLE)%{\e[36;1m%}%B]%{\e[0m%} %b%{\e[1;37m%}%~%{\e[36;1m%}%{\e[0m%}
-%{\e[36;1m%}%B└─%B$ %{\e[0m%}%b '
+    USERCOLORED="%{$fg[red]%}%n"
 else
-    PROMPT=$'%{\e[36;1m%}%B┌─[%b%{\e[0m%}%{\e[1;34m%}%n%{\e[1;33m%}@%{\e[37m%}%m%{\e[36;1m%}%B]%b%{\e[0m%}%{\e[36;1m%}%B[%b%{\e[0;33m%}'%D{"%H:%M:%S"}%b$'%{\e[36;1m%}%B]\e[36;1m%}%B[%b%{\e[0;33m%}$(MAINROLE)%{\e[36;1m%}%B]%{\e[0m%} %b%{\e[1;37m%}%~%{\e[36;1m%}%{\e[0m%}
-%{\e[36;1m%}%B└─%B$ %{\e[0m%}%b '
+    USERCOLORED="%{$fg[blue]%}%n"
 fi
+
+USER_PROMPT="%{$fg[cyan]%}[$USERCOLORED%{$fg[yellow]%}@%{$fg[white]%}$(instanceid)%{$fg[cyan]%}]%{$reset_color%}"
+
+TIME_PROMPT="%{$fg[cyan]%}[%{$fg[yellow]%}%D{"%H:%M:%S"}%{$fg[cyan]%}]%{$reset_color%}"
+
+if [ "$(environment)" -ne "prod" ]; then
+    ENV_PROMPT="%{$bg[white]%}%{$fg_bold[black]%}$(environment)%{$reset_color%}"
+else
+    ENV_PROMPT="%{$bg[red]%}%{$fg_bold[white]%}$(environment)%{$reset_color%}"
+fi
+
+CWD_PROMPT="%~"
+
+SNDLINEPREFIX="%{$fg[cyan]%}└─$%{$reset_color%}"
+
+PROMPT=$'$FSTLINEPREFIX$USER_PROMPT$ENV_PROMPT$TIME_PROMPT $CWD_PROMPT
+$SNDLINEPREFIX
+'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
