@@ -9,6 +9,8 @@ rmlink(){
 # zsh
 rmlink zsh/env ~/.zshenv
 rmlink zsh/rc ~/.zshrc
+mkdir -p ~/.oh-my-zsh/custom/themes
+rmlink zsh/theme ~/.oh-my-zsh/custom/themes/jumpbox.zsh-theme
 
 # tools
 rmlink bin ~/.bin

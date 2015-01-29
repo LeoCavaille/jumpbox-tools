@@ -1,1 +1,12 @@
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+ZSH_THEME="jumpbox"
+DISABLE_AUTO_UPDATE="true"
+COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+plugins=(git)
+
 source ~/.jumpbox-tools/zsh/aliases
+source $ZSH/oh-my-zsh.sh
