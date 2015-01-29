@@ -11,6 +11,6 @@ refreshtools(){
     git pull
     ./installs.sh
     ./links.sh
-    echo "Launch a new shell or re-connect"
     cd -
+    exec zsh
 }
