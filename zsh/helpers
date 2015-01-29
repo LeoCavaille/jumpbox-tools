@@ -14,3 +14,22 @@ refreshtools(){
     cd -
     exec zsh
 }
+
+deploytools(){
+    rsync -azq --exclude '.jumpbox-tools/.git' --exclude '.oh-my-zsh/.git' --exclude '.oh-my-zsh/themes' ~/.bin ~/.gitconfig ~/.jumpbox-tools ~/.oh-my-zsh ~/.zshenv ~/.zshrc $USER@$1
+}
+
+jr(){
+    IP=$(/usr/local/bin/consulkv services:catalog | grep "$1" | jq -r .Address | head -1)
+    deploytools $IP
+    ssh $IP
+}
+
+ji(){
+    deploytools $1
+    ssh $1
+}
+
+chosts_by_role() {
+  /usr/local/bin/consulkv services:catalog | grep "$1" | jq -r .Node | sort | uniq
+}
