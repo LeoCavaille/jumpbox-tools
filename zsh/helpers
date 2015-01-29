@@ -1,3 +1,3 @@
 environment(){
-    cat /opt/datadog/etc/environment | cut -c 5-
+    cat /opt/datadog/etc/environment | cut -c 5- | tr '[a-z]' '[A-Z]'
 }

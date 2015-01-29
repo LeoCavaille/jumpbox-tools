@@ -17,9 +17,9 @@ USER_PROMPT="%{$fg[cyan]%}[$USERCOLORED%{$fg[yellow]%}@%{$fg[white]%}$(instancei
 TIME_PROMPT="%{$fg[cyan]%}[%{$fg[yellow]%}%D{"%H:%M:%S"}%{$fg[cyan]%}]%{$reset_color%}"
 
 if [ "$(environment)" -ne "prod" ]; then
-    ENV_PROMPT="%{$bg[white]%}%{$fg_bold[black]%}$(environment)%{$reset_color%}"
+    ENV_PROMPT="%{$fg[cyan]%}[%{$bg[white]%}%{$fg_bold[black]%}$(environment)%{$fg[cyan]%}]%{$reset_color%}"
 else
-    ENV_PROMPT="%{$bg[red]%}%{$fg_bold[white]%}$(environment)%{$reset_color%}"
+    ENV_PROMPT="%{$fg[cyan]%}[%{$bg[red]%}%{$fg_bold[white]%}$(environment)%{$fg[cyan]%}]%{$reset_color%}"
 fi
 
 CWD_PROMPT="%~"
