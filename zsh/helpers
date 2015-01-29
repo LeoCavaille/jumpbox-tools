@@ -9,7 +9,8 @@ mainroles(){
 refreshtools(){
     cd ~/.jumpbox-tools
     git pull
-    ./install.sh
+    ./installs.sh
     ./links.sh
     echo "Launch a new shell or re-connect"
+    cd -
 }
