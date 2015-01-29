@@ -1,0 +1,9 @@
+# custom DD consul helpers
+if [ -f /etc/profile.d/consul.sh ]; then
+    . /etc/profile.d/consul.sh
+fi
+
+# custom tools
+PATH=~/.bin:$PATH
+
+EDITOR=vim
