@@ -6,7 +6,7 @@ cd ~
 rm -rf .bash* .bin* .cache* .chef* .config* .lesshst .oh-my-zsh .profile .ssh/known_hosts .vim* .zcomp* .zsh*
 
 # Clone ourselves
-git clone https://github.com/LeoCavaille/jumpbox-tools ~/.jumpbox-tools
+git clone git@github.com:LeoCavaille/jumpbox-tools ~/.jumpbox-tools
 cd ~/.jumpbox-tools
 
 ./installs.sh
