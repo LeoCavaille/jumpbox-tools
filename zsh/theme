@@ -14,14 +14,15 @@ fi
 
 USER_PROMPT="%{$fg[cyan]%}[$USERCOLORED%{$fg[yellow]%}@%{$fg[white]%}$(instanceid)%{$fg[cyan]%}]%{$reset_color%}"
 
-TIME_PROMPT="%{$fg[cyan]%}[%{$fg[yellow]%}%D{"%H:%M:%S"}%{$fg[cyan]%}]%{$reset_color%}"
-
 if [ "$(environment)" != "PROD" ]; then
     ENV_PROMPT="%{$fg[cyan]%}[%{$bg[white]%}%{$fg_bold[black]%}$(environment)%k%b%{$fg[cyan]%}]%{$reset_color%}"
 else
     ENV_PROMPT="%{$fg[cyan]%}[%{$bg[red]%}%{$fg_bold[white]%}$(environment)%k%b%{$fg[cyan]%}]%{$reset_color%}"
 fi
 
+ROLE_PROMPT="%{$fg[cyan]%}[%{$fg[green]%}$(mainroles)%{$fg[cyan]%}]%{$reset_color%}"
+
+TIME_PROMPT="%{$fg[cyan]%}[%{$fg[yellow]%}%D{"%H:%M:%S"}%{$fg[cyan]%}]%{$reset_color%}"
 CWD_PROMPT="%~"
 
 SNDLINEPREFIX="%{$fg[cyan]%}└─$%{$reset_color%}"

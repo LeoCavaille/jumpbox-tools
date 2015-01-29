@@ -1,3 +1,7 @@
 environment(){
     cat /opt/datadog/etc/environment | cut -c 5- | tr '[a-z]' '[A-Z]'
 }
+
+mainroles(){
+    cat /etc/update-motd.d/95-roles | tail -n+5 | grep -vE '^Instance Type:|^\*\*|^$' | grep -Ev 'common-node|monitoring-client' | paste -d',' -
+}
