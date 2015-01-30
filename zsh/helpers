@@ -1,4 +1,8 @@
-environment(){
+environmentlc(){
+    cat /opt/datadog/etc/environment | cut -c 5-
+}
+
+environmentuc(){
     cat /opt/datadog/etc/environment | cut -c 5- | tr '[a-z]' '[A-Z]'
 }
 
@@ -31,5 +35,9 @@ ji(){
 }
 
 chosts_by_role() {
-  /usr/local/bin/consulkv services:catalog | grep "$1" | jq -r .Node | sort | uniq
+    /usr/local/bin/consulkv services:catalog | grep "$1" | jq -r .Node | sort | uniq
+}
+
+pg() {
+    sudo -u postgres psql -p 5433 dogdata$(environmentlc)
 }
