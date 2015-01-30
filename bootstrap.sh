@@ -14,3 +14,4 @@ cd ~/.jumpbox-tools
 ./installs.sh
 ./links.sh
 
+exec zsh
