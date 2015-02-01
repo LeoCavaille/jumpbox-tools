@@ -17,3 +17,9 @@ rmlink bin ~/.bin
 
 # git
 rmlink git/config ~/.gitconfig
+
+# ssh
+rmlink ssh/rc ~/.ssh/rc
+
+# tmux
+rmlink tmux/conf ~/.tmux.conf
