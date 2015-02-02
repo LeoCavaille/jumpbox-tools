@@ -41,3 +41,23 @@ chosts_by_role() {
 pg() {
     sudo -u postgres psql -p 5433 dogdata$(environmentlc)
 }
+
+# Thanks @miketheman
+howold ()
+{
+    if [ -f /etc/created ]; then
+        created=`cat /etc/created`;
+    else
+        echo "Can't determine how old this node is, it must be very old!";
+        exit 1;
+    fi;
+    _time=$(expr `date +%s` - $created);
+    _days=`printf "scale=0;$_time / 86400\n" | bc -l`;
+    _hours=`printf "scale=0;($_time / 3600) - ($_days * 24)\n"  | bc -l `;
+    _minutes=`printf "scale=0;($_time / 60) - ($_days * 1440) - ($_hours * 60)\n" | bc -l`;
+    _seconds=`printf "scale=0;$_time %% 60\n" | bc -l`;
+    printf "This node was created: ";
+    printf "${_days:-0}-Day(s)/${_hours:-0}-Hour(s)/";
+    printf "${_minutes:-0}-Minute(s)/${_seconds:-0}-Second(s)";
+    printf " ago.\n"
+}
