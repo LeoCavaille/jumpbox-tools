@@ -63,9 +63,9 @@ howold ()
 }
 
 sudog () {
-    sudo -u dog
+    sudo -u dog $@
 }
 
 sudogq () {
-    sudo -u dog dogq
+    sudo -u dog dogq $@
 }
