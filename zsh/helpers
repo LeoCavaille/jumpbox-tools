@@ -61,3 +61,11 @@ howold ()
     printf "${_minutes:-0}-Minute(s)/${_seconds:-0}-Second(s)";
     printf " ago.\n"
 }
+
+sudog () {
+    sudo -u dog
+}
+
+sudogq () {
+    sudo -u dog dogq
+}
