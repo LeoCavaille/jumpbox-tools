@@ -1,0 +1,4 @@
+users=`who | grep pts | grep -v $USER | awk '{ print \$1 }' | sort -u | paste -s -d ','`
+if [ -n "$users" ]; then
+    echo "$users are also connected on this node!"
+fi
