@@ -69,3 +69,7 @@ sudog () {
 sudogq () {
     sudo -u dog dogq $@
 }
+
+mq () {
+    sudogq metric_query $@
+}
