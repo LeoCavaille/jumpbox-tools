@@ -8,6 +8,8 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(git tmux)
 
+fpath=(~/.jumpbox-tools/zsh/completion $fpath)
+
 source ~/.jumpbox-tools/zsh/aliases
 source ~/.jumpbox-tools/zsh/helpers
 source $ZSH/oh-my-zsh.sh

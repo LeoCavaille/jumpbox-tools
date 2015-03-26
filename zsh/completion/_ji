@@ -1,0 +1,5 @@
+#compdef ji
+
+for inst in `curl http://localhost:8500/v1/catalog/nodes | jq '.[] .Node' | tr -d '"'`; do
+    compadd $inst
+done
