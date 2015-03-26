@@ -1,6 +1,6 @@
 #compdef ji
 
-for inst in `curl -s http://localhost:8500/v1/catalog/nodes | jq '.[]'`; do
+for inst in `curl -s http://localhost:8500/v1/catalog/nodes | jq -c '.[]'`; do
     local id=`echo $inst | jq -r '.Node'`
     compadd $id
 done
