@@ -6,7 +6,7 @@ DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git tmux)
+plugins=(capistrano git tmux)
 
 fpath=(~/.jumpbox-tools/zsh/completion $fpath)
 
