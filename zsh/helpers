@@ -7,7 +7,7 @@ environmentuc(){
 }
 
 mainroles(){
-    cat /etc/update-motd.d/95-roles | tail -n+5 | grep -vE '^Instance Type:|^\*\*|^$' | grep -Ev 'common-node|monitoring-client|dog-base' | paste -d',' -s -
+    cat /etc/update-motd.d/95-roles | tail -n+5 | grep -vE '^Instance Type:|^\*\*|^$' | grep -Ev 'common-node|monitoring-client|dog-base|encrypted-storage' | paste -d',' -s -
 }
 
 refreshtools(){
