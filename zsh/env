@@ -7,3 +7,5 @@ fi
 PATH=~/.bin:$PATH
 
 EDITOR=vim
+
+KNIFE_HOME=/etc/chef
