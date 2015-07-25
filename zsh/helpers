@@ -62,6 +62,10 @@ howold ()
     printf " ago.\n"
 }
 
+howbig() {
+    cat /etc/motd | grep Instance
+}
+
 sudog () {
     sudo -u dog $@
 }
