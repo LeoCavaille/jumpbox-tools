@@ -87,7 +87,7 @@ gosource() {
 goinstall() {
     cd ~
     rm -f go*tar.gz
-    wget https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz
+    wget https://dd-pastebin.s3.amazonaws.com/leo/go1.4.2.tar.gz
     tar zxf go1.4.2.linux-amd64.tar.gz -C ~/
     rm -rf ~/go
     rm -rf ~/code
