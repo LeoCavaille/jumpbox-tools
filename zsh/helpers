@@ -77,3 +77,25 @@ sudogq () {
 mq () {
     sudogq metric_query $@
 }
+
+gosource() {
+    export PATH=~/go/bin:$PATH
+    export GOPATH=~/code
+    export GOROOT=~/go
+}
+
+goinstall() {
+    cd ~
+    wget https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz
+    rm -rf ~/go
+    rm -rf ~/code
+    mkdir -p ~/code/src/github.com/DataDog
+
+    git clone git@github.com:DataDog/dd-go ~/code/src/github.com/DataDog/dd-go
+    git clone git@github.com:DataDog/raclette ~/code/src/github.com/DataDog/raclette
+    gosource
+
+    go get github.com/robfig/glock
+    go get github.com/golang/lint/golint
+    go get golang.org/x/tools/cmd/goimports
+}
