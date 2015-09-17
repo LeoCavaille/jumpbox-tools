@@ -87,6 +87,7 @@ gosource() {
 goinstall() {
     cd ~
     wget https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz
+    tar zxf go1.4.2.linux-amd64.tar.gz -C ~/
     rm -rf ~/go
     rm -rf ~/code
     mkdir -p ~/code/src/github.com/DataDog
@@ -98,4 +99,5 @@ goinstall() {
     go get github.com/robfig/glock
     go get github.com/golang/lint/golint
     go get golang.org/x/tools/cmd/goimports
+    cd -
 }
