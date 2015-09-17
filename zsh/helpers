@@ -26,12 +26,12 @@ deploytools(){
 jr(){
     IP=$(/usr/local/bin/consulkv services:catalog | grep "$1" | jq -r .Address | head -1)
     deploytools $IP
-    ssh $IP
+    ssh -A $IP
 }
 
 ji(){
     deploytools $1
-    ssh $1
+    ssh -A $1
 }
 
 chosts_by_role() {
