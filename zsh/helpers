@@ -79,7 +79,7 @@ mq () {
 }
 
 gosource() {
-    export PATH=~/go/bin:$PATH
+    export PATH=~/code/bin:~/go/bin:$PATH
     export GOPATH=~/code
     export GOROOT=~/go
 }
