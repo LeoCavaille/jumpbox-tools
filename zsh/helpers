@@ -20,7 +20,7 @@ refreshtools(){
 }
 
 deploytools(){
-    rsync -azq --exclude '.jumpbox-tools/.git' --exclude '.oh-my-zsh/.git' --exclude '.oh-my-zsh/themes' ~/.bin ~/.gitconfig ~/.jumpbox-tools ~/.oh-my-zsh ~/.tmux.conf ~/.zshenv ~/.zshrc $USER@$1:
+    rsync -azq --exclude '.jumpbox-tools/.git' --exclude '.oh-my-zsh/.git' --exclude '.oh-my-zsh/themes' ~/.bin ~/.config ~/.gitconfig ~/.jumpbox-tools ~/.oh-my-zsh ~/.tmux.conf ~/.zshenv ~/.zshrc $USER@$1:
 }
 
 jr(){
