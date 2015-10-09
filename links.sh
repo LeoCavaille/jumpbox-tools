@@ -27,3 +27,7 @@ rmlink tmux/conf ~/.tmux.conf
 
 # gdb!
 rmlink gdbinit ~/.gdbinit
+
+# htop
+mkdir -p ~/.config/htop
+rmlink htoprc ~/.config/htop/htoprc
