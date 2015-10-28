@@ -102,3 +102,7 @@ goinstall() {
     go get golang.org/x/tools/cmd/goimports
     cd -
 }
+
+knife () {
+    /usr/local/bin/knife $1 -c /etc/chef/knife.rb ${@:2}
+}
