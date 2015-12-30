@@ -88,8 +88,8 @@ goinstall() {
     cd ~
     rm -rf ~/go
     rm -f go*tar.gz
-    wget https://dd-pastebin.s3.amazonaws.com/leo/go1.4.2.tar.gz
-    tar zxf go1.4.2.tar.gz -C ~/
+    wget https://dd-pastebin.s3.amazonaws.com/leo/go1.5.2.tar.gz
+    tar zxf go1.5.2.tar.gz -C ~/
     rm -rf ~/code
     mkdir -p ~/code/src/github.com/DataDog
 
