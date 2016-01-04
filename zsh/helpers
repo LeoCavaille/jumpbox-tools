@@ -106,3 +106,13 @@ goinstall() {
 knife () {
     /usr/local/bin/knife $1 -c /etc/chef/knife.rb ${@:2}
 }
+
+myip() {
+    ip addr show eth0 | grep -oP 'inet 10.\d+.\d+.\d+' | cut -c 6-
+}
+
+lastoffset(){
+    topic=$1
+    partition=$2
+    sudo -u kafka /usr/local/kafka/kafka_*/bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list "$(myip):9092" --topic $topic --partitions $partition --time -1
+}
