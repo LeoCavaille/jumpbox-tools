@@ -1,6 +1,37 @@
 #compdef ji
 
-for inst in `curl -s http://localhost:8500/v1/catalog/nodes | jq -c '.[]'`; do
-    local id=`echo $inst | jq -r '.Node'`
-    compadd $id
-done
+_instances_caching_policy() {
+        local -a oldp
+        # cache 1h
+        oldp=( "$1"(Nmh+1) )
+        (( $#oldp ))
+}
+
+_ji() {
+        local cache_policy
+        zstyle -s ":completion:${curcontext}:" cache-policy cache_policy
+        if [[ -z "$cache_policy" ]]; then
+                zstyle ":completion:${curcontext}:" cache-policy _instances_caching_policy
+        fi
+
+        typeset -g -a _instanceslist
+        if ( (( #_instanceslist == 0 )) || _cache_invalid instances) \
+                && ! _retrieve_cache instances; then
+
+                _instanceslist=()
+                echo
+                echo "Building the instances completion index (cache outdated), this should take a short while"
+                for entry in `consulkv services:catalog | grep '"ServiceID":"datadog"'`
+                do
+                        echo -n "."
+                        NODE_ID=`echo $entry | jq -r .Node`
+                        DESCRIPTION=`echo $entry | jq -r '.ServiceTags | join("\n")' | grep -vE '^(chef-client|az-|use-ctx-pshard|use-master-proxy)' | paste -s -d ',' -`
+                        _instanceslist+=( "$NODE_ID:$DESCRIPTION" )
+                done
+                echo "DONE. BACK TO WORK!"
+                echo
+                _store_cache instances _instanceslist
+        fi
+
+        _describe 'values' _instanceslist
+}
