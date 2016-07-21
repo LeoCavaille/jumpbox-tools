@@ -1,0 +1,18 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+colorscheme delek
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set expandtab
+set pastetoggle=<f2>
+
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
+
+autocmd Filetype python setlocal ts=4 sw=4 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab

@@ -31,3 +31,6 @@ rmlink gdbinit ~/.gdbinit
 # htop
 mkdir -p ~/.config/htop
 rmlink htoprc ~/.config/htop/htoprc
+
+# vim
+rmlink vim/vimrc ~/.vimrc
