@@ -88,8 +88,8 @@ goinstall() {
     cd ~
     rm -rf ~/go
     rm -f go*tar.gz
-    wget https://dd-pastebin.s3.amazonaws.com/leo/go1.7.1.linux-amd64.tar.gz
-    tar zxf go1.7.1.linux-amd64.tar.gz -C ~/
+    wget https://dd-pastebin.s3.amazonaws.com/leo/go1.7.3.linux-amd64.tar.gz
+    tar zxf go1.7.3.linux-amd64.tar.gz -C ~/
     rm -rf ~/code
     mkdir -p ~/code/src/github.com/DataDog
 
@@ -98,8 +98,6 @@ goinstall() {
     gosource
 
     go get github.com/robfig/glock
-    go get github.com/golang/lint/golint
-    go get golang.org/x/tools/cmd/goimports
     cd -
 }
 
