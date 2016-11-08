@@ -5,3 +5,5 @@ alias lla="ls -al"
 alias nn="netstat -tulpn"
 alias cap="cap -f /etc/capistrano/Capfile"
 alias c="clear"
+
+alias whoiam="curl -s 169.254.169.254/latest/meta-data/iam/info"
