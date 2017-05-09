@@ -114,3 +114,7 @@ lastoffset(){
     partition=$2
     sudo -u kafka /usr/local/kafka/kafka_*/bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list "$(myip):9092" --topic $topic --partitions $partition --time -1
 }
+
+ksearch() {
+    knife search node $1 -a ec2.placement_availability_zone -a ec2.instance_type -a tags -a roles -a uptime_in_seconds
+}
